@@ -16,6 +16,10 @@ namespace GUI_Fraction_Calculator
         {
             this.numerator = numerator;
             this.denominator = denominator;
+
+            int gcd = getGCD(this.numerator, this.denominator);
+            this.numerator /= gcd;
+            this.denominator /= gcd;
         }
 
         public string Verbose()
@@ -56,6 +60,28 @@ namespace GUI_Fraction_Calculator
             return result;
         }
 
+        public static Fraction operator-(Fraction a, Fraction b)
+        {
+            var newNumerator = (a.numerator * b.denominator) - (a.denominator * b.numerator);
+            var newDenominator = (a.denominator * b.denominator);
+            Fraction result = new Fraction(newNumerator, newDenominator);
+            return result;
+        }
 
+        public static Fraction operator*(Fraction a, Fraction b)
+        {
+            var newNumerator = (a.numerator * b.numerator);
+            var newDenominator = (a.denominator * b.denominator);
+            Fraction result = new Fraction(newNumerator, newDenominator);
+            return result;
+        }
+
+        public static Fraction operator/(Fraction a, Fraction b)
+        {
+            var newNumerator = (a.numerator * b.denominator);
+            var newDenominator = (a.denominator * b.numerator);
+            Fraction result = new Fraction(newNumerator, newDenominator);
+            return result;
+        }
     }
 }

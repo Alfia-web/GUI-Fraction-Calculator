@@ -24,18 +24,45 @@ namespace GUI_Fraction_Calculator.Tests
             var fraction1 = new Fraction(1, 5);
             var fraction2 = new Fraction(2, 5);
             Fraction result = fraction1 + fraction2;
-            Assert.AreEqual("15/25", result.Verbose());
+            Assert.AreEqual("3/5", result.Reduce().Verbose());
         }
 
         [TestMethod()]
-        public void ReduceFractionTest()
+        public void PlusFractionTest2()
         {
-            var fraction1 = new Fraction(1, 5);
-            var fraction2 = new Fraction(2, 5);
+            var fraction1 = new Fraction(5, 5);
+            var fraction2 = new Fraction(5, 5);
             Fraction result = fraction1 + fraction2;
-            result = result.Reduce();
-            Assert.AreEqual("3/5", result.Verbose());
+            Assert.AreEqual("3/5", result.Reduce().Verbose());
         }
+
+        [TestMethod()]
+        public void SubtractionFractionTest()
+        {
+            var fraction1 = new Fraction(2, 5);
+            var fraction2 = new Fraction(1, 5);
+            Fraction result = fraction1 - fraction2;
+            Assert.AreEqual("1/5", result.Reduce().Verbose());
+        }
+
+
+        [TestMethod()]
+        public void MultiplicationFractionTest()
+        {
+            var fraction1 = new Fraction(2, 5);
+            var fraction2 = new Fraction(1, 5);
+            Fraction result = fraction1 * fraction2;
+            Assert.AreEqual("2/25", result.Reduce().Verbose());
+        }
+
+        //[TestMethod()]
+        //public void DivisionFractionTest()
+        //{
+        //    var fraction1 = new Fraction(2, 5);
+        //    var fraction2 = new Fraction(1, 5);
+        //    Fraction result = fraction1 / fraction2;
+        //    Assert.AreEqual("2/5", result.Reduce().Verbose());
+        //}
     }
 
 }
