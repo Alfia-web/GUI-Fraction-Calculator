@@ -14,6 +14,17 @@ namespace GUI_Fraction_Calculator
 
         public Fraction(int numerator, int denominator)
         {
+            if(denominator == 0)
+            {
+                throw new ArgumentException("Знаменатель не может быть 0");
+            }
+
+            if(denominator < 0)
+            {
+                numerator = -numerator;
+                denominator = -denominator;
+            }
+            
             this.numerator = numerator;
             this.denominator = denominator;
 
@@ -22,9 +33,21 @@ namespace GUI_Fraction_Calculator
             this.denominator /= gcd;
         }
 
-        public string Verbose()
+        public override string ToString()
         {
             return string.Format("{0}/{1}", this.numerator, this.denominator);
+        }
+
+        public override bool Equals(object obj)
+        {
+           var fraction = obj as Fraction;
+            if(fraction == null)
+                return false;
+            else
+            {
+                return this.numerator == fraction.numerator &&
+                    this.denominator == fraction.denominator;
+            }
         }
 
         public static int getGCD(int numerator, int denominator)
@@ -81,6 +104,26 @@ namespace GUI_Fraction_Calculator
             var newNumerator = (a.numerator * b.denominator);
             var newDenominator = (a.denominator * b.numerator);
             Fraction result = new Fraction(newNumerator, newDenominator);
+            return result;
+        }
+
+        public static string Compare(Fraction a, Fraction b)
+        {
+            int left = a.numerator * b.denominator;
+            int right = a.denominator * b.numerator;
+
+            string result;
+            if (left > right)
+            {
+                result = a.ToString() + " больше, чем " + b.ToString();
+            }
+            else if (left < right) {
+                result = b.ToString() + " больше, чем " + a.ToString();
+            }
+            else
+            {
+                result = "Ну они равны";
+            }
             return result;
         }
     }
