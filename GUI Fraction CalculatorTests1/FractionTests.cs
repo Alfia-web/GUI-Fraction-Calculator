@@ -119,7 +119,7 @@ namespace GUI_Fraction_Calculator.Tests
         {
             var fraction1 = new Fraction(1, 4);
             var fraction2 = new Fraction(1, 2);
-            Fraction result = fraction1 * fraction2;
+            Fraction result = fraction1/fraction2;
             Assert.AreEqual(new Fraction(1, 2), result);
         }
 
@@ -128,7 +128,7 @@ namespace GUI_Fraction_Calculator.Tests
         {
             var fraction1 = new Fraction(-2, 5);
             var fraction2 = new Fraction(1, 5);
-            Fraction result = fraction1 * fraction2;
+            Fraction result = fraction1 / fraction2;
             Assert.AreEqual(new Fraction(-2, 1), result);
         }
 
@@ -137,7 +137,6 @@ namespace GUI_Fraction_Calculator.Tests
         {
             var fraction1 = new Fraction(3, 5);
             var fraction2 = new Fraction(1, 5);
-            Fraction result = fraction1 * fraction2;
             Assert.AreEqual("3/5 больше, чем 1/5", Fraction.Compare(fraction1, fraction2));
         }
 
@@ -156,7 +155,7 @@ namespace GUI_Fraction_Calculator.Tests
             var fraction1 = new Fraction(3, 5);
             var fraction2 = new Fraction(3, 5);
             Fraction result = fraction1 * fraction2;
-            Assert.AreEqual("Ну они раавны", Fraction.Compare(fraction1, fraction2));
+            Assert.AreEqual("Ну они равны", Fraction.Compare(fraction1, fraction2));
         }
 
         [TestMethod()]

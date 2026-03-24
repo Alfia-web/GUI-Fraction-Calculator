@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//проверка знаменатель меньеш числителя
 namespace GUI_Fraction_Calculator
 {
     
